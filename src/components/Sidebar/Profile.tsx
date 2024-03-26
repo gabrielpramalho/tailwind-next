@@ -1,17 +1,26 @@
+import { LogOut } from 'lucide-react'
+
 export function Profile() {
   return (
-    <div className="flex items-center gap-3">
+    <div className="grid-cols-profile grid items-center gap-3">
       <img
         src="https://github.com/gabrielpramalho.png"
         alt="Foto de Perfil Gabriel"
-        className="w-10 h-10 rounded-full"
+        className="h-10 w-10 rounded-full"
       />
 
-      <div className="flex flex-col">
-        <span></span>
-        <span></span>
+      <div className="flex flex-col truncate">
+        <span className="text-sm font-semibold text-zinc-700">
+          Gabriel Ramalho
+        </span>
+        <span className="truncate text-sm text-zinc-500">
+          gpedroramalho@gmail.com
+        </span>
       </div>
 
+      <button type="button" className="ml-auto rounded-md p-2 hover:bg-zinc-50">
+        <LogOut className="h-5 w-5 text-zinc-500" />
+      </button>
     </div>
   )
 }
