@@ -53,7 +53,6 @@ export function SettingsTabs() {
         />
         <TabItem title="API" value="api" isSelected={currentTab === 'api'} />
       </Tabs.List>
-      <Tabs.Content value="my-details">My details</Tabs.Content>
     </Tabs.Root>
   )
 }
