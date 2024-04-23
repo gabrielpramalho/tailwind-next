@@ -2,7 +2,9 @@ import { SettingsTabs } from '@/components/SettingsTabs'
 import { InputRoot, InputControl, InputPrefix } from '@/components/Input'
 import { Select } from '@/components/Form/Select'
 import * as FileInput from '@/components/Form/FileInput'
-import { Mail } from 'lucide-react'
+import { Bold, Italic, Link, List, ListOrdered, Mail } from 'lucide-react'
+import { SelectItem } from '@/components/Form/Select/SelectItem'
+import { Textarea } from '@/components/Form/Textarea'
 
 export default function Home() {
   return (
@@ -106,7 +108,11 @@ export default function Home() {
               Country
             </label>
             <div>
-              <Select />
+              <Select placeholder="Select a country...">
+                <SelectItem value="br" text="Brazil" />
+                <SelectItem value="us" text="United States" />
+                <SelectItem value="ar" text="Argentina" />
+              </Select>
             </div>
           </div>
           <div className="grid grid-cols-form gap-3 pt-5">
@@ -116,7 +122,15 @@ export default function Home() {
             >
               Timezone
             </label>
-            <div></div>
+            <div>
+              <Select placeholder="Select a timezone...">
+                <SelectItem
+                  value="pst"
+                  text="Pacific standard Time (UTC-08:00)"
+                />
+                <SelectItem value="brt" text="Brasília Time (UTC-03:00)" />
+              </Select>
+            </div>
           </div>
           <div className="grid grid-cols-form gap-3 pt-5">
             <label htmlFor="bio" className="text-sm font-medium text-zinc-700">
@@ -125,7 +139,54 @@ export default function Home() {
                 Write a short introduction.
               </span>
             </label>
-            <div></div>
+            <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-3">
+                <Select placeholder="" defaultValue="txt">
+                  <SelectItem value="txt" text="Normal Text" />
+                  <SelectItem value="md" text="Markdown Text" />
+                </Select>
+
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    className="rounded-md p-2 hover:bg-zinc-50"
+                  >
+                    <Bold className="size-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-md p-2 hover:bg-zinc-50"
+                  >
+                    <Italic className="size-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-md p-2 hover:bg-zinc-50"
+                  >
+                    <Link className="size-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-md p-2 hover:bg-zinc-50"
+                  >
+                    <List className="size-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-md p-2 hover:bg-zinc-50"
+                  >
+                    <ListOrdered
+                      className="size-4 text-zinc-500"
+                      strokeWidth={3}
+                    />
+                  </button>
+                </div>
+              </div>
+              <Textarea
+                id="bio"
+                defaultValue="Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dolore cum nulla modi soluta beatae voluptates. Omnis, voluptatem. Distinctio incidunt commodi aliquam laudantium nisi inventore provident itaque ducimus suscipit deleniti."
+              />
+            </div>
           </div>
           <div className="grid grid-cols-form gap-3 pt-5">
             <label
